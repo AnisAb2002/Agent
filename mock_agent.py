@@ -1,52 +1,54 @@
+# mock_agent.py
+
 def simuler_reponse_agent_faible(input_utilisateur):
     """
-    Simule un agent 'Vibe' mal configuré.
-    Il est évasif, manque de politesse et ne donne pas d'informations concrètes.
-    Objectif : Provoquer un 'FAILURE' lors du test.
+    Simule un agent "Vibe" mal configuré (celui du début du projet).
+    Il est évasif, manque de politesse et ne respecte pas les contraintes métiers.
+    OBJECTIF : Montrer au jury que votre outil détecte les ÉCHECS (❌).
     """
     input_lower = input_utilisateur.lower()
     
-    # Cas de remboursement
+    # Cas de remboursement / SAV
     if "remboursement" in input_lower or "rembourser" in input_lower:
-        return "Je ne gère pas ça. Allez voir ailleurs ou cherchez sur le site."
+        return "Je ne sais pas, demandez au support technique demain."
     
-    # Cas de prix ou tarifs
-    elif "prix" in input_lower or "combien" in input_lower or "tarif" in input_lower:
-        return "Les prix changent tout le temps, je ne peux pas vous dire."
+    # Cas de prix ou budget
+    elif "prix" in input_lower or "combien" in input_lower or "budget" in input_lower:
+        return "Les prix sont sur le catalogue, cherchez un peu."
     
-    # Cas de contact ou aide
-    elif "aide" in input_lower or "contact" in input_lower or "humain" in input_lower:
-        return "Désolé, je suis juste un bot."
+    # Cas de recherche de stage (ton exemple initial)
+    elif "stage" in input_lower or "offre" in input_lower:
+        return "Il n'y a plus de place, réessayez l'année prochaine."
         
-    # Réponse par défaut très pauvre
+    # Réponse par défaut très médiocre
     else:
-        return "Euh... je n'ai pas compris votre question. Essayez de demander autre chose."
+        return "Euh... je ne comprends pas. Reformulez."
 
 
 def simuler_reponse_agent_robuste(input_utilisateur):
     """
-    Simule un agent bien configuré après passage par VibeGuard.
-    Il est poli, précis et propose des solutions concrètes.
-    Objectif : Obtenir un 'SUCCESS' lors du test.
+    Simule un agent "Optimisé" (celui après avoir suivi les conseils de VibeGuard).
+    Il est poli, structuré et donne des informations exploitables.
+    OBJECTIF : Montrer que votre outil valide la RÉUSSITE (✅).
     """
     input_lower = input_utilisateur.lower()
     
-    # Cas de remboursement
+    # Cas de remboursement / SAV
     if "remboursement" in input_lower or "rembourser" in input_lower:
-        return ("Je comprends votre demande. Chez SportShop, vous avez 30 jours pour changer d'avis. "
-                "Veuillez me fournir votre numéro de commande pour lancer la procédure de retour.")
+        return ("Je comprends tout à fait votre demande. Pour procéder à un remboursement, "
+                "merci de me transmettre votre numéro de commande. Nous traitons les retours sous 48h.")
     
-    # Cas de prix ou tarifs
-    elif "prix" in input_lower or "combien" in input_lower or "tarif" in input_lower:
-        return ("Nos tarifs dépendent de la gamme choisie : nous avons des raquettes à partir de 29€ "
-                "pour les débutants et jusqu'à 150€ pour les compétiteurs. Quel est votre budget ?")
+    # Cas de prix ou budget
+    elif "prix" in input_lower or "combien" in input_lower or "budget" in input_lower:
+        return ("Nos tarifs s'adaptent à votre budget. Nous avons des solutions allant de 20€ à 150€. "
+                "Souhaitez-vous voir notre sélection la plus abordable ?")
     
-    # Cas de contact ou aide
-    elif "aide" in input_lower or "contact" in input_lower or "humain" in input_lower:
-        return ("Je suis là pour vous aider ! Si vous souhaitez parler à un conseiller, "
-                "je peux vous transférer au service client ou vous donner leur numéro : 01 02 03 04 05.")
+    # Cas de recherche de stage
+    elif "stage" in input_lower or "offre" in input_lower:
+        return ("Nous avons actuellement 3 offres de stage en développement Python et IA. "
+                "Vous pouvez postuler directement via notre portail RH ou m'envoyer votre CV ici.")
         
     # Réponse par défaut professionnelle
     else:
-        return ("Bonjour ! Je suis l'assistant expert de SportShop. Je peux vous renseigner sur nos produits, "
-                "nos tarifs ou notre politique de retour. Que puis-je faire pour vous ?")
+        return ("Bonjour ! Je suis l'assistant intelligent de votre service. "
+                "Comment puis-je vous accompagner dans vos recherches aujourd'hui ?")
